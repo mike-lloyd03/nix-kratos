@@ -10,7 +10,7 @@
     kernelParams = [ "button.lid_init_state=open" ];
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = "kratos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Los_Angeles";
