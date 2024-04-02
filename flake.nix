@@ -16,7 +16,7 @@
 
   outputs = inputs: {
     nixosConfigurations = {
-      nixos = inputs.nixpkgs.lib.nixosSystem {
+      kratos = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
