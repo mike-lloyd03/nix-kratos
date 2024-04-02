@@ -318,6 +318,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "mike" ];
   nix.settings.allowed-users = [ "mike" ];
+  nix.optimise.automatic = true;
 
   nixpkgs.config.allowUnfree = true;
 
