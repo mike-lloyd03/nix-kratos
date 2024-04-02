@@ -323,5 +323,18 @@
 
   system.copySystemConfiguration = false;
 
+  system.userActivationScripts = {
+    gitCommitConfig = {
+      text = ''
+        source ${config.system.build.setEnvironment}
+        GEN=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
+        cd /etc/nixos
+        git add .
+        git commit -m "Gen $GEN"
+        git push origin master
+      '';
+    };
+  };
+
   system.stateVersion = "24.05"; # Don't change
 }
