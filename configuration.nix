@@ -225,7 +225,19 @@
         enable = true;
         enableOffloadCmd = true;
       };
-      # sync.enable = true;
+    };
+  };
+
+  specialisation = {
+    performance.configuration = {
+      system.nixos.tags = [ "performance" ];
+      hardware.nvidia = {
+        prime.offload = {
+          enable = lib.mkForce false;
+          enableOffloadCmd = lib.mkForce false;
+        };
+        prime.sync.enable = lib.mkForce true;
+      };
     };
   };
 
