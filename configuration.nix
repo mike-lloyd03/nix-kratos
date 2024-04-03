@@ -306,6 +306,12 @@
     shell = pkgs.fish;
   };
 
+  users.users.test = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "video" "input" ];
+    shell = pkgs.fish;
+  };
+
   environment.systemPackages = with pkgs; [
     atuin
     bat
