@@ -416,8 +416,7 @@
         GEN=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
         cd /etc/nixos
         git add .
-        git commit -m "Gen $GEN" || true
-        git push origin master
+        git commit -m "Gen $GEN" && git push origin master || true
       '';
     };
   };
