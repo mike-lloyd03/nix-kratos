@@ -29,6 +29,7 @@
     videoDrivers = [ "nvidia" ];
     desktopManager.xfce.enable = true;
     desktopManager.gnome.enable = true;
+    displayManager.startx.enable = true;
   };
 
   services.printing.enable = true;
