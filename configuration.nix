@@ -27,9 +27,9 @@
     enable = true;
     libinput.enable = true;
     videoDrivers = [ "nvidia" ];
-    desktopManager.xfce.enable = true;
-    desktopManager.gnome.enable = true;
-    displayManager.startx.enable = true;
+    # desktopManager.xfce.enable = true;
+    # desktopManager.gnome.enable = true;
+    # displayManager.startx.enable = true;
   };
 
   services.printing.enable = true;
@@ -360,11 +360,6 @@
     zoxide
   ];
 
-  # systemd.services.keyd = {
-  #   serviceConfig = { ExecStart = "/run/current-system/sw/bin/keyd"; };
-  #   wantedBy = [ "multi-user.target" ];
-  # };
-
   systemd.services.swayosd-libinput-backend = {
     unitConfig = {
       Description =
@@ -382,28 +377,28 @@
     wantedBy = [ "graphical.target" "multi-user.target" ];
   };
 
-  # systemd.user.services.libinput-gestures.wantedBy = [ "default.target" ];
-  # systemd.user.services.ydotool.wantedBy = [ "default.target" ];
-  #
-  # systemd.user.services.kanshi = {
-  #   description = "kanshi daemon";
-  #   serviceConfig = {
-  #     Type = "simple";
-  #     ExecStart = "${pkgs.kanshi}/bin/kanshi";
-  #     Restart = "on-failure";
-  #   };
-  #   wantedBy = [ "default.target" ];
-  # };
-  #
-  # systemd.user.services.protonmail-bridge = {
-  #   description = "An IMAP/SMTP bridge to a ProtonMail account";
-  #   serviceConfig = {
-  #     ExecStart =
-  #       "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive";
-  #   };
-  #   wantedBy = [ "default.target" ];
-  #
-  # };
+  systemd.user.services.libinput-gestures.wantedBy = [ "default.target" ];
+  systemd.user.services.ydotool.wantedBy = [ "default.target" ];
+
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.kanshi}/bin/kanshi";
+      Restart = "on-failure";
+    };
+    wantedBy = [ "default.target" ];
+  };
+
+  systemd.user.services.protonmail-bridge = {
+    description = "An IMAP/SMTP bridge to a ProtonMail account";
+    serviceConfig = {
+      ExecStart =
+        "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive";
+    };
+    wantedBy = [ "default.target" ];
+
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
