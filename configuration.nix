@@ -30,13 +30,13 @@
     desktopManager.xfce.enable = true;
     # desktopManager.gnome.enable = true;
     # displayManager.startx.enable = true;
+    # displayManager.gdm.enable = true;
+    # displayManager.sddm = {
+    #   enable = true;
+    #   theme = "Elegant";
+    # };
   };
-  # services.xserver.displayManager.gdm = { enable = true; };
 
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    theme = "Elegant";
-  };
   # services.greetd.enable = true;
   # programs.regreet = {
   #   enable = true;
@@ -263,7 +263,7 @@
           enableOffloadCmd = lib.mkForce false;
         };
         prime.sync.enable = lib.mkForce true;
-    powerManagement.finegrained = lib.mkForce false;
+        powerManagement.finegrained = lib.mkForce false;
       };
     };
   };
