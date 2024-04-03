@@ -27,10 +27,33 @@
     enable = true;
     libinput.enable = true;
     videoDrivers = [ "nvidia" ];
-    # desktopManager.xfce.enable = true;
+    desktopManager.xfce.enable = true;
     # desktopManager.gnome.enable = true;
     # displayManager.startx.enable = true;
   };
+  # services.xserver.displayManager.gdm = { enable = true; };
+
+  # services.xserver.displayManager.sddm = {
+  #   enable = true;
+  #   theme = "Elegant";
+  # };
+  # services.greetd.enable = true;
+  # programs.regreet = {
+  #   enable = true;
+  #   settings = {
+  #     background = {
+  #       path = "/etc/greetd/bg.jpg";
+  #       fit = "Cover";
+  #     };
+  #     GTK = {
+  #       application_prefer_dark_theme = true;
+  #       cursor_theme_name = "Adwaita";
+  #       font_name = "Cantarell 16";
+  #       icon_theme_name = "Adwaita";
+  #       theme_name = "Arc-Dark";
+  #     };
+  #   };
+  # };
 
   services.printing.enable = true;
 
@@ -266,30 +289,6 @@
     # environment.sessionVariables.NIXOS_OZONE_WL = "1";
   };
   programs.fish.enable = true;
-
-  services.xserver.displayManager.gdm = { enable = true; };
-
-  # services.xserver.displayManager.sddm = {
-  #   enable = true;
-  #   theme = "Elegant";
-  # };
-  # services.greetd.enable = true;
-  # programs.regreet = {
-  #   enable = true;
-  #   settings = {
-  #     background = {
-  #       path = "/etc/greetd/bg.jpg";
-  #       fit = "Cover";
-  #     };
-  #     GTK = {
-  #       application_prefer_dark_theme = true;
-  #       cursor_theme_name = "Adwaita";
-  #       font_name = "Cantarell 16";
-  #       icon_theme_name = "Adwaita";
-  #       theme_name = "Arc-Dark";
-  #     };
-  #   };
-  # };
 
   programs.steam = {
     enable = true;
