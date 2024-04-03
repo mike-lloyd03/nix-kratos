@@ -33,4 +33,6 @@
       };
     };
   };
+
+  nixConfig = { warn-dirty = false; };
 }
