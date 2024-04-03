@@ -1,16 +1,16 @@
 { inputs, pkgs, ... }:
 
 {
-  gtk.enable = true;
-  gtk.theme.name = "Arc-Dark";
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "WhiteSur-cursors";
-    package = pkgs.whitesur-cursors;
-    size = 24;
-  };
+  # gtk.enable = true;
+  # gtk.theme.name = "Arc-Dark";
+  #
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   name = "WhiteSur-cursors";
+  #   package = pkgs.whitesur-cursors;
+  #   size = 24;
+  # };
 
   home.packages = with pkgs; [
     inputs.anyrun.packages.${system}.anyrun-with-all-plugins
