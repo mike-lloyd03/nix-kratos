@@ -353,7 +353,7 @@
     wget
     wl-clipboard
     xorg.xauth
-    ydotool
+    # ydotool
     zellij
     zip
     zoxide
