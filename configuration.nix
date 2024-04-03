@@ -359,21 +359,16 @@
     zoxide
   ];
 
-  systemd.services.swayosd-libinput-backend = {
-    unitConfig = {
-      Description =
-        "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc...";
-      Documentation = "https://github.com/ErikReider/SwayOSD";
-      PartOf = "graphical.target";
-      After = "graphical.target";
-    };
+  systemd.user.services.swayosd-libinput-backend = {
+    description =
+      "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc...";
     serviceConfig = {
       Type = "dbus";
       BusName = "org.erikreider.swayosd";
       ExecStart = "/run/current-system/sw/bin/swayosd-libinput-backend";
       Restart = "on-failure";
     };
-    wantedBy = [ "graphical.target" "multi-user.target" ];
+    wantedBy = [ "default.target" ];
   };
 
   systemd.user.services.libinput-gestures.wantedBy = [ "default.target" ];
