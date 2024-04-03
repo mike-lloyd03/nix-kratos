@@ -265,7 +265,7 @@
 
   services.xserver.displayManager.sddm = {
     enable = true;
-    theme = "elegant";
+    theme = "Elegant";
   };
   # services.greetd.enable = true;
   # programs.regreet = {
