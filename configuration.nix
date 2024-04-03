@@ -265,7 +265,7 @@
 
   services.xserver.displayManager.sddm = {
     enable = true;
-    theme = "chili";
+    theme = "elegant";
   };
   # services.greetd.enable = true;
   # programs.regreet = {
@@ -332,7 +332,7 @@
     python3
     ripgrep
     rustc
-    sddm-chili-theme
+    elegant-sddm
     starship
     sudo
     swayosd
