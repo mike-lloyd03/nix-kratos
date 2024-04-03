@@ -24,10 +24,9 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.displayManager.startx.enable = true;
-  services.xserver.windowManager.leftwm.enable = true;
   services.xserver.libinput.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.desktopManager.xfce.enable = true;
 
   services.printing.enable = true;
 
