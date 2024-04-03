@@ -23,11 +23,13 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.libinput.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    libinput.enable = true;
+    videoDrivers = [ "nvidia" ];
+    desktopManager.xfce.enable = true;
+    desktopManager.gnome.enable = true;
+  };
 
   services.printing.enable = true;
 
@@ -264,10 +266,12 @@
   };
   programs.fish.enable = true;
 
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    theme = "Elegant";
-  };
+  services.xserver.displayManager.gdm = { enable = true; };
+
+  # services.xserver.displayManager.sddm = {
+  #   enable = true;
+  #   theme = "Elegant";
+  # };
   # services.greetd.enable = true;
   # programs.regreet = {
   #   enable = true;
