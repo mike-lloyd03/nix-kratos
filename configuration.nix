@@ -29,7 +29,7 @@
     videoDrivers = [ "nvidia" ];
     desktopManager.xfce.enable = true;
     # desktopManager.gnome.enable = true;
-    displayManager.startx.enable = true;
+    # displayManager.startx.enable = true;
   };
   # services.xserver.displayManager.gdm = { enable = true; };
 
@@ -263,6 +263,7 @@
           enableOffloadCmd = lib.mkForce false;
         };
         prime.sync.enable = lib.mkForce true;
+    powerManagement.finegrained = lib.mkForce false;
       };
     };
   };
