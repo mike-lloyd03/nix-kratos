@@ -27,9 +27,9 @@
     enable = true;
     libinput.enable = true;
     videoDrivers = [ "nvidia" ];
-    # desktopManager.xfce.enable = true;
+    desktopManager.xfce.enable = true;
     # desktopManager.gnome.enable = true;
-    # displayManager.startx.enable = true;
+    displayManager.startx.enable = true;
   };
   # services.xserver.displayManager.gdm = { enable = true; };
 
