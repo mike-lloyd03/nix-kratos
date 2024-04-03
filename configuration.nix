@@ -27,6 +27,7 @@
   services.xserver.libinput.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   services.printing.enable = true;
 
