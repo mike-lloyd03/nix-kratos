@@ -23,7 +23,7 @@
     videoDrivers = [ "nvidia" ];
     desktopManager.xfce.enable = true;
     # desktopManager.gnome.enable = true;
-    # displayManager.startx.enable = true;
+    displayManager.startx.enable = true;
     # displayManager.gdm.enable = true;
     # displayManager.sddm = {
     #   enable = true;
