@@ -52,10 +52,10 @@
 
   services.printing.enable = true;
 
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="backlight", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
-    ACTION=="add", SUBSYSTEM=="backlight", RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
-  '';
+  # services.udev.extraRules = ''
+  #   ACTION=="add", SUBSYSTEM=="backlight", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
+  #   ACTION=="add", SUBSYSTEM=="backlight", RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
+  # '';
 
   services.syncthing = {
     enable = true;
@@ -64,19 +64,19 @@
   };
 
   # services.logind.lidSwitchDocked = "ignore";
-  services.logind.lidSwitchExternalPower = "ignore";
-
-  services.gnome.gnome-keyring.enable = true;
-
-  services.postgresql.enable = true;
-
-  services.keyd = {
-    enable = true;
-    keyboards = {
-      internal = import ./keyd/internal.nix;
-      keychron = import ./keyd/keychron.nix;
-    };
-  };
+  # services.logind.lidSwitchExternalPower = "ignore";
+  #
+  # services.gnome.gnome-keyring.enable = true;
+  #
+  # services.postgresql.enable = true;
+  #
+  # services.keyd = {
+  #   enable = true;
+  #   keyboards = {
+  #     internal = import ./keyd/internal.nix;
+  #     keychron = import ./keyd/keychron.nix;
+  #   };
+  # };
 
   # services.autorandr.enable = true;
   # services.autorandr.profiles = {
@@ -196,15 +196,15 @@
 
   security = {
     polkit.enable = true;
-    sudo = {
-      wheelNeedsPassword = false;
-      # Needed for nvim to work properly under sudo
-      # WAYLAND_DISPLAY and XDG_RUNTIME_DIR are so the clipboard provider works with wl-clipboard
-      extraConfig = ''
-        Defaults env_keep += "WAYLAND_DISPLAY XDG_RUNTIME_DIR"
-      '';
-    };
-    pam.services.mike.enableGnomeKeyring = true;
+    # sudo = {
+    #   wheelNeedsPassword = false;
+    #   # Needed for nvim to work properly under sudo
+    #   # WAYLAND_DISPLAY and XDG_RUNTIME_DIR are so the clipboard provider works with wl-clipboard
+    #   extraConfig = ''
+    #     Defaults env_keep += "WAYLAND_DISPLAY XDG_RUNTIME_DIR"
+    #   '';
+    # };
+    # pam.services.mike.enableGnomeKeyring = true;
   };
 
   programs.hyprland = {
@@ -214,15 +214,15 @@
   };
   programs.fish.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
-    package = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [ libkrb5 keyutils ];
-    };
-  };
+  # programs.steam = {
+  #   enable = true;
+  #   remotePlay.openFirewall = true;
+  #   dedicatedServer.openFirewall = true;
+  #   gamescopeSession.enable = true;
+  #   package = pkgs.steam.override {
+  #     extraPkgs = pkgs: with pkgs; [ libkrb5 keyutils ];
+  #   };
+  # };
 
   programs.dconf.enable = true;
 
@@ -275,14 +275,14 @@
     waypipe
     wget
     wl-clipboard
-    xorg.xauth
-    ydotool
+    # xorg.xauth
+    # ydotool
     zellij
     zip
     zoxide
   ];
 
-  systemd.user.services = import ./user-services.nix { inherit pkgs; };
+  # systemd.user.services = import ./user-services.nix { inherit pkgs; };
 
   nix = {
     settings = {
