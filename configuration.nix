@@ -78,6 +78,7 @@
     };
   };
 
+  services.autorandr.enable = true;
   services.autorandr.profiles = {
     "both" = {
       fingerprint = {
@@ -95,19 +96,19 @@
           position = "0x0";
           primary = true;
           rate = "240.00";
-          x-prop-broadcast_rgb = "Automatic";
-          x-prop-colorspace = "Default";
-          x-prop-max_bpc = 12;
-          x-prop-non_desktop = 0;
-          x-prop-scaling_mode = "Full aspect";
+          # x-prop-broadcast_rgb = "Automatic";
+          # x-prop-colorspace = "Default";
+          # x-prop-max_bpc = 12;
+          # x-prop-non_desktop = 0;
+          # x-prop-scaling_mode = "Full aspect";
         };
         DP-1-0 = {
           enable = true;
           mode = "3440x1440";
-          pos = "1920x0";
+          position = "1920x0";
           primary = true;
           rate = "100.00";
-          x-prop-non_desktop = 0;
+          # x-prop-non_desktop = 0;
         };
       };
     };
