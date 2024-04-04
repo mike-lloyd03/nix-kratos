@@ -94,7 +94,6 @@
           gamma = "1.031:1.0:1.02";
           mode = "1920x1080";
           position = "0x0";
-          primary = true;
           rate = "240.00";
           # x-prop-broadcast_rgb = "Automatic";
           # x-prop-colorspace = "Default";
