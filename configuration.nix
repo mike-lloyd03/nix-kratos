@@ -156,7 +156,10 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.finegrained = true;
+    powerManagement = {
+      enable = false;
+      finegrained = false;
+    };
     open = false;
     nvidiaSettings = true;
 
@@ -168,6 +171,8 @@
         enableOffloadCmd = true;
       };
     };
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   specialisation = {

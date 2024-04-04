@@ -13,14 +13,15 @@
 
   ydotool.wantedBy = [ "default.target" ];
 
-  kanshi = {
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.kanshi}/bin/kanshi";
-      Restart = "on-failure";
-    };
-    wantedBy = [ "default.target" ];
-  };
+  # kanshi = {
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     ExecStart = "${pkgs.kanshi}/bin/kanshi";
+  #     Restart = "on-failure";
+  #   };
+  #   wantedBy = [ "default.target" ];
+  # };
+
   protonmail-bridge = {
     serviceConfig = {
       ExecStart =
