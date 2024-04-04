@@ -10,19 +10,13 @@
     kernelParams = [ "button.lid_init_state=open" ];
   };
 
-  networking.hostName = "kratos";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "kratos";
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "America/Los_Angeles";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-    useXkbConfig = false;
-  };
-
-  # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     libinput.enable = true;
@@ -79,79 +73,7 @@
     enable = true;
     keyboards = {
       internal = import ./keyd/internal.nix;
-      keychron = {
-        ids = [ "05ac:024f" ];
-        settings = {
-          main = {
-            f1 = "brightnessdown";
-            f2 = "brightnessup";
-            f5 = "kbdillumdown";
-            f6 = "kbdillumup";
-            f7 = "previoussong";
-            f8 = "playpause";
-            f9 = "nextsong";
-            f10 = "mute";
-            f11 = "volumedown";
-            f12 = "volumeup";
-            control = "layer(meta)";
-            alt = "layer(control)";
-            meta = "layer(alt)";
-            capslock = "overload(nav, esc)";
-            "leftshift+rightshift" = "capslock";
-          };
-          control = {
-            f1 = "f1";
-            f2 = "f2";
-            f3 = "f3";
-            f5 = "f5";
-            f6 = "f6";
-            f7 = "f7";
-            f8 = "f8";
-            f9 = "f9";
-            f10 = "f10";
-            f11 = "f11";
-            f12 = "f12";
-          };
-          shift = {
-            f1 = "f1";
-            f2 = "f2";
-            f3 = "f3";
-            f5 = "f5";
-            f6 = "f6";
-            f7 = "f7";
-            f8 = "f8";
-            f9 = "f9";
-            f10 = "f10";
-            f11 = "f11";
-            f12 = "f12";
-          };
-          control-alt = {
-            f1 = "f1";
-            f2 = "f2";
-            f3 = "f3";
-            f5 = "f5";
-            f6 = "f6";
-            f7 = "f7";
-            f8 = "f8";
-            f9 = "f9";
-            f10 = "f10";
-            f11 = "f11";
-            f12 = "f12";
-          };
-          nav = {
-            h = "left";
-            k = "up";
-            j = "down";
-            l = "right";
-            y = "copy";
-            p = "paste";
-            x = "cut";
-            u = "undo";
-            "0" = "home";
-            "4" = "end";
-          };
-        };
-      };
+      keychron = import ./keyd/keychron.nix;
     };
   };
 
@@ -166,8 +88,6 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    #   # Fine-grained power management. Turns off GPU when not in use.
-    #   # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = true;
     open = false;
     nvidiaSettings = true;
@@ -196,8 +116,10 @@
     };
   };
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   security = {
     polkit.enable = true;
@@ -260,7 +182,6 @@
     gnumake
     glxinfo
     just
-    # keyd
     lsd
     lshw
     lua-language-server
@@ -282,56 +203,22 @@
     wget
     wl-clipboard
     xorg.xauth
-    # ydotool
+    ydotool
     zellij
     zip
     zoxide
   ];
 
-  # systemd.user.services.swayosd-libinput-backend = {
-  #   description =
-  #     "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc...";
-  #   serviceConfig = {
-  #     Type = "dbus";
-  #     BusName = "org.erikreider.swayosd";
-  #     ExecStart = "/run/current-system/sw/bin/swayosd-libinput-backend";
-  #     Restart = "on-failure";
-  #   };
-  #   wantedBy = [ "default.target" ];
-  # };
+  systemd.user.services = import ./user-services.nix { inherit pkgs; };
 
-  # systemd.user.services.libinput-gestures.wantedBy = [ "default.target" ];
-  # systemd.user.services.ydotool.wantedBy = [ "default.target" ];
-  #
-  # systemd.user.services.kanshi = {
-  #   description = "kanshi daemon";
-  #   serviceConfig = {
-  #     Type = "simple";
-  #     ExecStart = "${pkgs.kanshi}/bin/kanshi";
-  #     Restart = "on-failure";
-  #   };
-  #   wantedBy = [ "default.target" ];
-  # };
-  #
-  # systemd.user.services.protonmail-bridge = {
-  #   description = "An IMAP/SMTP bridge to a ProtonMail account";
-  #   serviceConfig = {
-  #     ExecStart =
-  #       "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive";
-  #   };
-  #   wantedBy = [ "default.target" ];
-  # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = [ "mike" ];
-  nix.settings.allowed-users = [ "mike" ];
-  nix.optimise.automatic = true;
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "mike" ];
+      allowed-users = [ "mike" ];
+    };
+    optimise.automatic = true;
+  };
 
   nixpkgs.config.allowUnfree = true;
 
