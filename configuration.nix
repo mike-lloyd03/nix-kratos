@@ -29,6 +29,7 @@
     #   enable = true;
     #   theme = "Elegant";
     # };
+    windowManager.leftwm.enable = true;
   };
 
   # services.greetd.enable = true;
