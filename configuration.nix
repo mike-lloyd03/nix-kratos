@@ -281,7 +281,7 @@
         Defaults env_keep += "WAYLAND_DISPLAY XDG_RUNTIME_DIR"
       '';
     };
-    # pam.services.mike.enableGnomeKeyring = true;
+    pam.services.mike.enableGnomeKeyring = true;
   };
 
   programs.hyprland = {
