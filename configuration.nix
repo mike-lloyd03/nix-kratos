@@ -281,7 +281,7 @@
         Defaults env_keep += "WAYLAND_DISPLAY XDG_RUNTIME_DIR"
       '';
     };
-    pam.services.mike.enableGnomeKeyring = true;
+    # pam.services.mike.enableGnomeKeyring = true;
   };
 
   programs.hyprland = {
@@ -309,7 +309,7 @@
   users.users.mike = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "input" ];
-    # shell = pkgs.fish;
+    shell = pkgs.fish;
   };
 
   users.users.test = {
