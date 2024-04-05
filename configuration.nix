@@ -193,6 +193,7 @@
     enable = true;
     powerOnBoot = true;
   };
+  services.blueman.enable =true;
 
   security = {
     polkit.enable = true;
