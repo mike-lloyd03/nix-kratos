@@ -276,7 +276,6 @@
     wget
     wl-clipboard
     xorg.xauth
-    ydotool
     zellij
     zip
     zoxide

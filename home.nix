@@ -48,6 +48,7 @@
     wlogout
     whitesur-cursors
     yazi
+    ydotool
 
     # https://github.com/NixOS/nixpkgs/pull/298652
     inputs.super-slicer-fix.legacyPackages.${system}.super-slicer-latest
