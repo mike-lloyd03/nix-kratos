@@ -25,7 +25,6 @@
     desktopManager.gnome.enable = true;
     displayManager.startx.enable = true;
     displayManager.gdm.enable = true;
-    displayManager.gdm.debug = true;
     # displayManager.sddm = {
     #   enable = true;
     #   theme = "Elegant";
