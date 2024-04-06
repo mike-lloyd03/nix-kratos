@@ -8,6 +8,7 @@
       configurationLimit = 2;
     };
     kernelParams = [ "button.lid_init_state=open" ];
+    # udev.log_priority=3 intel_iommu=on i915.enable_guc=0 i915.enable_gvt=1
   };
 
   networking = {
