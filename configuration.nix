@@ -156,15 +156,15 @@
     };
     fish.enable = true;
 
-    # steam = {
-    #   enable = true;
-    #   remotePlay.openFirewall = true;
-    #   dedicatedServer.openFirewall = true;
-    #   gamescopeSession.enable = true;
-    #   package = pkgs.steam.override {
-    #     extraPkgs = pkgs: with pkgs; [ libkrb5 keyutils ];
-    #   };
-    # };
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      gamescopeSession.enable = true;
+      package = pkgs.steam.override {
+        extraPkgs = pkgs: with pkgs; [ libkrb5 keyutils ];
+      };
+    };
 
     dconf.enable = true;
   };
