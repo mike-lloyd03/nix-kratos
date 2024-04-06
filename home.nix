@@ -38,6 +38,7 @@
     protonmail-desktop
     rofi-wayland
     rust-analyzer
+    stylua
     swayidle
     swaynotificationcenter
     syncthing
