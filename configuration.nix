@@ -113,7 +113,8 @@
         #   enable = true;
         #   enableOffloadCmd = true;
         # };
-        sync.enable = true;
+        # sync.enable = true;
+        reverseSync.enable = true;
       };
 
       package = config.boot.kernelPackages.nvidiaPackages.stable;
