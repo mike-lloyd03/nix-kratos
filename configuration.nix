@@ -20,7 +20,7 @@
   services.xserver = {
     enable = true;
     libinput.enable = true;
-    videoDrivers = [ "nvidia" ];
+    # videoDrivers = [ "nvidia" ];
     # desktopManager.xfce.enable = true;
     desktopManager.gnome.enable = true;
     displayManager.startx.enable = true;
@@ -154,53 +154,52 @@
     driSupport32Bit = true;
   };
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement = {
-      enable = false;
-      finegrained = false;
-    };
-    open = false;
-    nvidiaSettings = true;
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   powerManagement = {
+  #     enable = false;
+  #     finegrained = false;
+  #   };
+  #   open = false;
+  #   nvidiaSettings = true;
+  #
+  #   prime = {
+  #     intelBusId = "PCI:0:2:0";
+  #     nvidiaBusId = "PCI:1:0:0";
+  #     offload = {
+  #       enable = true;
+  #       enableOffloadCmd = true;
+  #     };
+  #   };
+  #
+  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # };
 
-    prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-    };
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  specialisation = {
-    performance.configuration = {
-      system.nixos.tags = [ "performance" ];
-      hardware.nvidia = {
-        prime.offload = {
-          enable = lib.mkForce false;
-          enableOffloadCmd = lib.mkForce false;
-        };
-        prime.sync.enable = lib.mkForce true;
-        powerManagement.finegrained = lib.mkForce false;
-      };
-    };
-  };
+  # specialisation = {
+  #   performance.configuration = {
+  #     system.nixos.tags = [ "performance" ];
+  #     hardware.nvidia = {
+  #       prime.offload = {
+  #         enable = lib.mkForce false;
+  #         enableOffloadCmd = lib.mkForce false;
+  #       };
+  #       prime.sync.enable = lib.mkForce true;
+  #       powerManagement.finegrained = lib.mkForce false;
+  #     };
+  #   };
+  # };
 
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
-  services.blueman.enable =true;
+  services.blueman.enable = true;
 
   security = {
     polkit.enable = true;
     sudo = {
       wheelNeedsPassword = false;
       # Needed for nvim to work properly under sudo
-      # WAYLAND_DISPLAY and XDG_RUNTIME_DIR are so the clipboard provider works with wl-clipboard
       extraConfig = ''
         Defaults env_keep += "WAYLAND_DISPLAY XDG_RUNTIME_DIR"
       '';
