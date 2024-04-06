@@ -1,17 +1,7 @@
 { pkgs }: {
-  swayosd-libinput-backend = {
-    serviceConfig = {
-      Type = "dbus";
-      BusName = "org.erikreider.swayosd";
-      ExecStart = "/run/current-system/sw/bin/swayosd-libinput-backend";
-      Restart = "on-failure";
-    };
-    wantedBy = [ "default.target" ];
-  };
+  # libinput-gestures.wantedBy = [ "default.target" ];
 
-  libinput-gestures.wantedBy = [ "default.target" ];
-
-  ydotool.wantedBy = [ "default.target" ];
+  # ydotool.wantedBy = [ "default.target" ];
 
   # kanshi = {
   #   serviceConfig = {

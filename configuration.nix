@@ -8,7 +8,6 @@
       configurationLimit = 2;
     };
     kernelParams = [ "button.lid_init_state=open" ];
-    # udev.log_priority=3 intel_iommu=on i915.enable_guc=0 i915.enable_gvt=1
   };
 
   networking = {
@@ -226,6 +225,18 @@
   ];
 
   systemd.user.services = import ./user-services.nix { inherit pkgs; };
+
+  systemd.services = {
+    swayosd-libinput-backend = {
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.erikreider.swayosd";
+        ExecStart = "/run/current-system/sw/bin/swayosd-libinput-backend";
+        Restart = "on-failure";
+      };
+      wantedBy = [ "default.target" ];
+    };
+  };
 
   nix = {
     settings = {
