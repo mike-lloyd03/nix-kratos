@@ -33,6 +33,7 @@
     };
 
     cpupower-gui.enable = true;
+    upower.enable = true;
   };
 
   # services.greetd.enable = true;
