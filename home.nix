@@ -30,6 +30,7 @@
     neofetch
     nextcloud-client
     nodePackages_latest.bash-language-server
+    nodePackages_latest.prettier
     nvimpager
     obsidian
     onlyoffice-bin_latest
