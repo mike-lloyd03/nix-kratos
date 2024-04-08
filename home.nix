@@ -12,6 +12,14 @@
     size = 24;
   };
 
+  programs = {
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
+  };
+
   home.packages = with pkgs; [
     inputs.anyrun.packages.${system}.anyrun-with-all-plugins
     arc-theme
