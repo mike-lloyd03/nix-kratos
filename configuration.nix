@@ -83,7 +83,7 @@
       };
     };
 
-    autorandr = import ./autorandr.nix;
+    # autorandr = import ./autorandr.nix;
   };
 
   sound.enable = true;
