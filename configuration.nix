@@ -195,7 +195,6 @@
     bat
     brightnessctl
     btop
-    cargo
     clang
     dust
     fd
@@ -214,7 +213,6 @@
     procs
     python3
     ripgrep
-    rustc
     elegant-sddm
     starship
     sudo
