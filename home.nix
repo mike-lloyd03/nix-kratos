@@ -39,7 +39,7 @@
     nodePackages_latest.bash-language-server
     nodePackages_latest.prettier
     nvimpager
-    nvtop-nvidia
+    nvtopPackages.nvidia
     obsidian
     onlyoffice-bin_latest
     picom
