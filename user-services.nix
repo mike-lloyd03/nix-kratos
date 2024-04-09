@@ -1,5 +1,5 @@
 { pkgs }: {
-  # libinput-gestures.wantedBy = [ "default.target" ];
+  libinput-gestures.wantedBy = [ "default.target" ];
 
   # ydotool.wantedBy = [ "default.target" ];
 
