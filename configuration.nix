@@ -20,7 +20,7 @@
     xserver = {
       enable = true;
       libinput.enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "nvidia-dkms" ];
       # desktopManager.xfce.enable = true;
       desktopManager.gnome.enable = true;
       displayManager.startx.enable = true;
@@ -105,20 +105,22 @@
     nvidia = {
       modesetting.enable = true;
       powerManagement = {
-        enable = false;
-        finegrained = false;
+        enable = true;
+        finegrained = true;
       };
       open = false;
       nvidiaSettings = true;
 
       prime = {
+        # pci@0000:00:02.0
         intelBusId = "PCI:0:2:0";
+        # pci@0000:01:00.0
         nvidiaBusId = "PCI:1:0:0";
-        # offload = {
-        #   enable = true;
-        #   enableOffloadCmd = true;
-        # };
-        sync.enable = true;
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        # sync.enable = true;
         # reverseSync.enable = true;
       };
 
