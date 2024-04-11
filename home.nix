@@ -28,6 +28,7 @@
     dunst
     evince
     feh
+    grimblast
     hypridle
     hyprlock
     hyprpaper
