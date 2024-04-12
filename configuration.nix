@@ -104,10 +104,10 @@
 
     nvidia = {
       modesetting.enable = true;
-      powerManagement = {
-        enable = true;
-        finegrained = true;
-      };
+      # powerManagement = {
+      #   enable = true;
+      #   finegrained = true;
+      # };
       open = false;
       nvidiaSettings = true;
 
@@ -116,12 +116,12 @@
         intelBusId = "PCI:0:2:0";
         # pci@0000:01:00.0
         nvidiaBusId = "PCI:1:0:0";
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
+        # offload = {
+        #   enable = true;
+        #   enableOffloadCmd = true;
+        # };
         # sync.enable = true;
-        # reverseSync.enable = true;
+        reverseSync.enable = true;
       };
 
       package = config.boot.kernelPackages.nvidiaPackages.stable;
