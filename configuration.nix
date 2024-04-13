@@ -226,6 +226,7 @@
     wget
     wl-clipboard
     xorg.xauth
+    xorg.xkill
     ydotool
     zellij
     zip
