@@ -212,6 +212,7 @@
     nil
     nixfmt-classic
     openssh
+    powertop
     procs
     python3
     ripgrep
