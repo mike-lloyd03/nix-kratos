@@ -28,6 +28,8 @@
     dunst
     evince
     feh
+    jless
+    jq
     grimblast
     hypridle
     hyprlock
