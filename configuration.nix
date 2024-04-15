@@ -169,7 +169,7 @@
 
   users.users.mike = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "input" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "input" "adbusers" ];
     shell = pkgs.fish;
   };
 
