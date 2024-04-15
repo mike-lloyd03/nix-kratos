@@ -20,6 +20,7 @@
   };
 
   home.packages = with pkgs; [
+    androidStudioPackages.stable
     inputs.anyrun.packages.${system}.anyrun-with-all-plugins
     arc-theme
     catppuccin-sddm-corners
