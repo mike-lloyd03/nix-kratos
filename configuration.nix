@@ -157,6 +157,9 @@
     };
 
     dconf.enable = true;
+
+    adb.enable = true;
+
   };
 
   fonts.packages = with pkgs;
