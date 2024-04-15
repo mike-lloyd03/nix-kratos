@@ -160,6 +160,8 @@
 
     adb.enable = true;
 
+    nix-ld.enable = true;
+
   };
 
   fonts.packages = with pkgs;
